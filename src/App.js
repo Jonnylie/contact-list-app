@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import ContactList from "./ContactList";
+import axios from "axios";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [contact, setContact] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedContact, setSelectedContact] = useState({});
+
+  const selectContact = (id) => {
+    setSelectedContact(contact[id]);
+  };
+
+  console.log(selectedContact);
+
+  useEffect(() => {
+    setLoading(true);
+    let cancel;
+    axios
+      .get("https://jsonplaceholder.typicode.com/users", {
+        cancelToken: new axios.CancelToken((c) => (cancel = c)), // set cancel variable everytime axios make a call
+      })
+      .then((res) => {
+        setLoading(false);
+        setContact(res.data);
+        console.log(res.data);
+      });
+
+    return () => cancel(); // cancel old request when we make a new request
+  }, []);
+
+  if (loading) return "Loading...";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="background">
+      <div className="container">
+        <ContactList contact={contact} selectContact={selectContact} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

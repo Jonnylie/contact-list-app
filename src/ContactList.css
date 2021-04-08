@@ -1,0 +1,15 @@
+.list-item {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.list-item:hover {
+  background: #1e1322;
+}
+
+.item-text {
+  margin-left: 10px;
+  color: white;
+}
