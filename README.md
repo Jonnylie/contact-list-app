@@ -1,6 +1,6 @@
 # Contacts-App
 
-React app to show contacts from API
+React app for user to browse their contacts. Get the data from https://jsonplaceholder.typicode.com/users API
 
 # Getting Started/Installation
 
