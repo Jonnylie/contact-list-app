@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 .background {
   background: linear-gradient(#27282b, #150619);
   height: 100vh;

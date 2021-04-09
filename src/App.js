@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ContactList from "./ContactList";
-import ContactDetail from "./ContactDetail"
+import ContactList from "./ContactList/ContactList";
+import ContactDetail from "./ContactDetail/ContactDetail";
 import axios from "axios";
 import "./App.css";
 
@@ -8,16 +8,15 @@ const App = () => {
   const [contact, setContact] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedContact, setSelectedContact] = useState();
+  const [error, setError] = useState(false);
 
   const selectContact = (id) => {
     setSelectedContact(contact[id]);
   };
 
   const removeContact = () => {
-    setSelectedContact(null)
-  }
-
-  console.log(selectedContact);
+    setSelectedContact(null);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -29,21 +28,29 @@ const App = () => {
       .then((res) => {
         setLoading(false);
         setContact(res.data);
-        console.log(res.data);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.message);
       });
 
     return () => cancel(); // cancel old request when we make a new request
   }, []);
 
   if (loading) return "Loading...";
+  if (error) return error;
 
   return (
     <div className="background">
       <div className="container">
-        {selectedContact ? 
-        <ContactDetail removeContact={removeContact}/> :
-        <ContactList contact={contact} selectContact={selectContact} />
-        }    
+        {selectedContact ? (
+          <ContactDetail
+            contact={selectedContact}
+            removeContact={removeContact}
+          />
+        ) : (
+          <ContactList contact={contact} selectContact={selectContact} />
+        )}
       </div>
     </div>
   );

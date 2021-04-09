@@ -8,11 +8,11 @@ const ContactList = ({ contact, selectContact }) => {
         <div
           key={c.id}
           className="list-item"
-          onClick={() => selectContact(c.id - 1)}
+          onClick={() => selectContact(c.id - 1)} // use contact id as a key for selectContact function
         >
           <img
-            src={require(`./images/${c.id}.jpg`).default}
-            style={{ borderRadius: "10px", height: "64px", width: "64px" }}
+            src={require(`../images/${c.id}.jpg`).default}
+            className="photograph"
           />
           <div className="item-text">{c.name}</div>
         </div>

@@ -1,0 +1,100 @@
+.info-container {
+  display: flex;
+  justify-content: "center";
+}
+
+.top-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80vh;
+  height: 300px;
+  position: relative;
+  margin-top: 50px;
+  border-radius: 25px;
+  background: linear-gradient(#332d35, #23262f);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.circle-image {
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-name {
+  margin-top: 60px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.contact-email {
+  margin: 5px 0;
+  color: grey;
+  text-align: center;
+}
+
+.grid-column {
+  display: flex;
+  margin: 30px;
+}
+
+.info-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-text {
+  color: white;
+  text-align: center;
+}
+
+.vertical-line {
+  border-left: 2.5px solid #909090;
+  height: 40px;
+  background-color: #909090;
+  margin: 0 20px;
+}
+
+.contact-icon {
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.wrapper {
+  margin: 20px;
+}
+
+.label {
+  color: grey;
+}
+
+.bottom-text {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .top-box {
+    height: 350px;
+  }
+
+  .grid-column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vertical-line {
+    height: 0px;
+    margin: 10px 0;
+  }
+}
