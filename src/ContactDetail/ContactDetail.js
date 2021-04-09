@@ -22,6 +22,7 @@ const ContactDetail = ({ removeContact, contact }) => {
           <img
             src={require(`../images/${contact.id}.jpg`).default}
             className="circle-image"
+            alt={contact.name}
           />
           <div className="contact-name">{contact.name}</div>
           <div className="contact-email">{contact.email}</div>

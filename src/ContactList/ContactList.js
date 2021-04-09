@@ -13,6 +13,7 @@ const ContactList = ({ contact, selectContact }) => {
           <img
             src={require(`../images/${c.id}.jpg`).default}
             className="photograph"
+            alt={c.name}
           />
           <div className="item-text">{c.name}</div>
         </div>
