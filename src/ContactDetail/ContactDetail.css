@@ -12,7 +12,8 @@
   position: relative;
   margin-top: 50px;
   border-radius: 25px;
-  background: linear-gradient(#2f354d, #23262f);
+  background-color: rgb(91, 87, 115);
+  background: linear-gradient(rgb(58, 55, 73), rgb(36, 35, 46));
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
